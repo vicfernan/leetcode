@@ -1,0 +1,15 @@
+class Solution(object):
+    def fill_list(self, n):
+        l = []
+        for i in xrange(1, n+1):
+            l.append(i)
+        return l
+        
+    def findTheWinner(self, n, k):
+        friends = self.fill_list(n)
+        i = 0
+        
+        while len(friends) > 1:
+            i = (i + k - 1) % len(friends)
+            friends.pop(i)
+        return friends[0]
